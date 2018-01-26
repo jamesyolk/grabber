@@ -1,0 +1,33 @@
+{
+    "manifest_version": 4,
+    "name": "grab",
+    "version": "1.0",
+
+    "description": "grab videos from streaming sites.",
+    "icons": {
+        "48": "icons/beasts-48.png"
+    },
+
+    "permissions": [
+        "activeTab", "downloads"
+    ],
+
+    "applications": {
+        "gecko": {
+            "id": "grab@example.com"
+        }
+    },
+
+    "browser_action": {
+        "default_icon": "icons/beasts-32.png",
+        "default_title": "grab video",
+        "default_popup": "popup/popup_grab.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/"],
+            "js": ["content_scripts/grab.js"]
+        }
+    ]
+}
