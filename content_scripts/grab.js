@@ -6,30 +6,14 @@
 
     window.hasRun = true;
 
-    function downloadSuccess(id) {
-        console.log(`download success: ${id}`);
-    }
-
-    function downloadError(error) {
-        console.error(`download error: ${error}`);
-    }
+    browser.runtime.onMessage.addListener(handleMessage);
 
     function grabURL() {
-        let videoURL = document.querySelector("div[class*=videoWrapper] video source").src;
-        let downloading = browser.downloads.download({url: videoURL});
-        
-        downloading.then(downloadSuccess)
-                   .catch(downloadError);
-
-        alert(videoURL);
+        return document.querySelector("div[class*=videoWrapper] video source").src;
     }
 
-
-    browser.runtime.onMessage.addListener((message) => {
-        if (message.start === "grabbing") {
-            //alert(message.start);
-            grabURL();
-        }
-    });
-
+    function handleMessage(request, sender, sendResponse) {
+        let videoURL = grabURL();
+        sendResponse({response: videoURL});
+    }
 })();

@@ -1,11 +1,11 @@
 {
     "manifest_version": 2,
-    "name": "grab",
+    "name": "Pornhub Download",
     "version": "1.0",
 
-    "description": "grab videos from streaming sites.",
+    "description": "Download Pornhub videos.",
     "icons": {
-        "48": "icons/beasts-48.png"
+        "48": "icons/grab-48.png"
     },
 
     "permissions": [
@@ -13,8 +13,8 @@
     ],
 
     "browser_action": {
-        "default_icon": "icons/beasts-32.png",
-        "default_title": "grab video",
+        "default_icon": "icons/grab-32.png",
+        "default_title": "Pornhub Download",
         "default_popup": "popup/popup_grab.html"
     }
 }
